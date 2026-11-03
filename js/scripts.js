@@ -1,52 +1,28 @@
 "use strict";
 
 /*
-    Initial prototype interactions.
+    Shared navigation script.
 
-    Currently:
-    - Navigation switches between the three sections.
-    - The hero button opens the dashboard section.
+    Each navigation link opens a separate HTML page.
+    This script marks the current page in the navigation.
 
-    Data loading, D3 charts and filter logic will be added later.
+    Real data, charts and filter logic will be added later.
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const navigationButtons = document.querySelectorAll(".nav-button");
-    const pageSections = document.querySelectorAll(".page-section");
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
-    const exploreButton = document.querySelector(".primary-button");
+    const navigationLinks =
+        document.querySelectorAll(".site-nav a");
 
-    function showSection(sectionId) {
-        const targetSection = document.getElementById(sectionId);
+    navigationLinks.forEach((link) => {
+        const linkedPage = link.getAttribute("href");
 
-        if (!targetSection) {
-            return;
+        if (linkedPage === currentPage) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
         }
-
-        // Display the selected section.
-        pageSections.forEach((section) => {
-            section.hidden = section.id !== sectionId;
-        });
-
-        // Update the navigation appearance and accessible state.
-        navigationButtons.forEach((button) => {
-            const isActive = button.dataset.section === sectionId;
-
-            button.classList.toggle("active", isActive);
-            button.setAttribute("aria-pressed", String(isActive));
-        });
-    }
-
-    navigationButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            showSection(button.dataset.section);
-        });
     });
-
-    exploreButton.addEventListener("click", () => {
-        showSection("dashboard-section");
-    });
-
-    // Default view when the website first opens.
-    showSection("dashboard-section");
 });

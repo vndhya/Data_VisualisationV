@@ -4,427 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RoadScope | Australian Road Injuries</title>
+    <title>RoadScope | Home</title>
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/scripts.js" defer></script>
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
-    <!-- Website header -->
     <header class="site-header">
         <a href="index.html" class="brand">
-            <span class="brand-icon" aria-hidden="true">R+</span>
-            <span>RoadScope</span>
+            <span class="brand-logo">R+</span>
+            RoadScope
         </a>
 
-        <p class="course-label">COS30045 · DATA VISUALISATION</p>
+        <span class="header-caption">
+            AUSTRALIAN ROAD INJURY EXPLORER
+        </span>
 
-        <span class="status-badge">PROJECT PREVIEW</span>
+        <span class="prototype-badge">PROJECT PREVIEW</span>
     </header>
 
-    <main id="main-content" class="container">
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="locations.html">Locations</a>
+        <a href="population.html">Population</a>
+        <a href="about.html">About</a>
+    </nav>
 
-        <!-- Introduction -->
-        <section class="hero">
-            <div class="hero-content">
-                <p class="eyebrow">AUSTRALIAN ROAD INJURY EXPLORER</p>
+    <main class="home-layout">
+        <section class="home-hero">
+            <div class="hero-copy">
+                <p class="eyebrow">EXPLORE THE PATTERNS</p>
 
                 <h1>
-                    Understanding injuries.<br>
-                    <span>Exploring the patterns.</span>
+                    Understanding<br>
+                    road injuries.<br>
+                    <span>One view at a time.</span>
                 </h1>
 
                 <p class="hero-description">
-                    An interactive dashboard in development to explore
-                    hospitalised road injuries across years, locations
-                    and population groups.
+                    Explore the proposed visualisation of Australian
+                    hospitalised road injuries through focused pages.
                 </p>
 
-                <a href="#dashboard-section" class="primary-button">
-                    Explore dashboard <span aria-hidden="true">↗</span>
+                <a href="locations.html" class="primary-button">
+                    Explore locations <span aria-hidden="true">↗</span>
                 </a>
             </div>
 
-            <div class="hero-feature">
-                <span class="feature-symbol" aria-hidden="true">+</span>
-                <p>FROM DATA<br>TO UNDERSTANDING</p>
-                <small>Australian road injury visualisation</small>
+            <div class="hero-decoration" aria-hidden="true">
+                <div class="decoration-ring"></div>
+                <span>+</span>
+            </div>
+
+            <div class="hero-bottom">
+                <span>COS30045 · DATA VISUALISATION</span>
+                <span>DESIGN IN DEVELOPMENT</span>
             </div>
         </section>
 
-        <!-- Prototype information -->
-        <div class="preview-notice">
-            <span class="notice-dot" aria-hidden="true"></span>
+        <section class="home-links" aria-label="Explore the website">
+            <a href="locations.html" class="destination-card">
+                <div class="destination-top">
+                    <span class="card-number">01</span>
+                    <span class="card-arrow" aria-hidden="true">↗</span>
+                </div>
 
-            <p>
-                <strong>Design preview:</strong>
-                This website currently demonstrates the dashboard layout.
-                Real data, charts and filtering will be added later.
-            </p>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="page-navigation" aria-label="Website sections">
-            <button
-                type="button"
-                class="nav-button active"
-                data-section="dashboard-section"
-                aria-controls="dashboard-section"
-                aria-pressed="true"
-            >
-                <span class="nav-number">01</span>
-                Dashboard
-            </button>
-
-            <button
-                type="button"
-                class="nav-button"
-                data-section="progress-section"
-                aria-controls="progress-section"
-                aria-pressed="false"
-            >
-                <span class="nav-number">02</span>
-                Project progress
-            </button>
-
-            <button
-                type="button"
-                class="nav-button"
-                data-section="about-section"
-                aria-controls="about-section"
-                aria-pressed="false"
-            >
-                <span class="nav-number">03</span>
-                About the project
-            </button>
-        </nav>
-
-        <!-- Dashboard -->
-        <section id="dashboard-section" class="page-section">
-            <div class="section-heading">
                 <div>
-                    <p class="eyebrow">THE PROPOSED DASHBOARD</p>
-                    <h2>Hospitalised road injuries</h2>
+                    <p class="eyebrow">GEOGRAPHIC PATTERNS</p>
+                    <h2>Compare locations</h2>
+                    <p>States, territories and remoteness.</p>
+                </div>
+            </a>
+
+            <a href="population.html" class="destination-card">
+                <div class="destination-top">
+                    <span class="card-number">02</span>
+                    <span class="card-arrow" aria-hidden="true">↗</span>
                 </div>
 
-                <span class="section-badge">Initial design</span>
-            </div>
-
-            <!-- Planned filters -->
-            <section class="filter-panel" aria-labelledby="filter-heading">
-                <div class="filter-heading">
-                    <div>
-                        <h3 id="filter-heading">Explore the data</h3>
-                        <p>
-                            Planned controls — available options will be
-                            confirmed from the cleaned dataset.
-                        </p>
-                    </div>
-
-                    <span class="small-badge">Coming soon</span>
-                </div>
-
-                <div class="filter-grid">
-                    <label for="year-filter">
-                        Year
-                        <select id="year-filter" disabled>
-                            <option>All years</option>
-                        </select>
-                    </label>
-
-                    <label for="state-filter">
-                        State / territory
-                        <select id="state-filter" disabled>
-                            <option>All locations</option>
-                        </select>
-                    </label>
-
-                    <label for="sex-filter">
-                        Sex
-                        <select id="sex-filter" disabled>
-                            <option>All categories</option>
-                        </select>
-                    </label>
-
-                    <label for="age-filter">
-                        Age group
-                        <select id="age-filter" disabled>
-                            <option>All age groups</option>
-                        </select>
-                    </label>
-
-                    <button type="button" class="reset-button" disabled>
-                        Reset filters ↺
-                    </button>
-                </div>
-            </section>
-
-            <!-- Summary cards -->
-            <div class="summary-grid">
-                <article class="summary-card featured">
-                    <p class="summary-label">Hospitalised injuries</p>
-                    <h3 class="summary-value">—</h3>
-                    <p class="summary-note">Awaiting verified data</p>
-                </article>
-
-                <article class="summary-card">
-                    <p class="summary-label">Reporting period</p>
-                    <h3 class="summary-value">—</h3>
-                    <p class="summary-note">To be confirmed from the dataset</p>
-                </article>
-
-                <article class="summary-card">
-                    <p class="summary-label">Locations covered</p>
-                    <h3 class="summary-value">—</h3>
-                    <p class="summary-note">State and territory comparison</p>
-                </article>
-
-                <article class="summary-card">
-                    <p class="summary-label">Development stage</p>
-                    <h3 class="summary-value text-value">Prototype</h3>
-                    <p class="summary-note">Website structure created</p>
-                </article>
-            </div>
-
-            <!-- Chart placeholders -->
-            <div class="chart-grid">
-                <article class="chart-card trend-card">
-                    <div class="chart-heading">
-                        <div>
-                            <p class="eyebrow">01 / THROUGH TIME</p>
-                            <h3>Annual hospitalised injuries</h3>
-                        </div>
-
-                        <span class="small-badge">Line chart</span>
-                    </div>
-
-                    <div id="trend-chart" class="chart-placeholder">
-                        <span class="placeholder-icon" aria-hidden="true">↗</span>
-                        <h4>Annual trend visualisation</h4>
-                        <p>
-                            This chart will show changes in hospitalised
-                            injuries over time.
-                        </p>
-                        <span class="placeholder-label">DATA NOT CONNECTED</span>
-                    </div>
-                </article>
-
-                <article class="chart-card">
-                    <div class="chart-heading">
-                        <div>
-                            <p class="eyebrow">02 / ACROSS AUSTRALIA</p>
-                            <h3>State and territory comparison</h3>
-                        </div>
-                    </div>
-
-                    <div id="state-chart" class="chart-placeholder">
-                        <span class="placeholder-icon" aria-hidden="true">▥</span>
-                        <h4>Geographic comparison</h4>
-                        <p>
-                            Compare injury counts across the jurisdictions
-                            available in the dataset.
-                        </p>
-                        <span class="placeholder-label">DATA NOT CONNECTED</span>
-                    </div>
-                </article>
-
-                <article class="chart-card">
-                    <div class="chart-heading">
-                        <div>
-                            <p class="eyebrow">03 / POPULATION PROFILE</p>
-                            <h3>Injuries by age group</h3>
-                        </div>
-                    </div>
-
-                    <div id="age-chart" class="chart-placeholder">
-                        <span class="placeholder-icon" aria-hidden="true">◎</span>
-                        <h4>Age group comparison</h4>
-                        <p>
-                            A population breakdown will be added if supported
-                            by the selected data.
-                        </p>
-                        <span class="placeholder-label">PLANNED VISUALISATION</span>
-                    </div>
-                </article>
-
-                <article class="chart-card insight-card">
-                    <p class="eyebrow">04 / UNDERSTANDING THE RESULTS</p>
-
-                    <h3>What will the data tell us?</h3>
-
-                    <p>
-                        This section will present key observations after
-                        the dataset has been cleaned and the visualisations
-                        have been verified.
-                    </p>
-
-                    <ul class="insight-list">
-                        <li>How have injury counts changed over time?</li>
-                        <li>How do patterns differ across locations?</li>
-                        <li>Which population groups show different patterns?</li>
-                    </ul>
-
-                    <div class="insight-footer">
-                        <span>FINDINGS WILL BE ADDED LATER</span>
-                        <span aria-hidden="true">↗</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Progress -->
-        <section id="progress-section" class="page-section" hidden>
-            <div class="section-heading">
                 <div>
-                    <p class="eyebrow">DEVELOPMENT OVERVIEW</p>
-                    <h2>Project progress</h2>
+                    <p class="eyebrow">POPULATION PATTERNS</p>
+                    <h2>Explore population groups</h2>
+                    <p>Planned comparisons by age and sex.</p>
+                </div>
+            </a>
+
+            <a href="about.html" class="destination-card red-card">
+                <div class="destination-top">
+                    <span class="card-number">03</span>
+                    <span class="card-arrow" aria-hidden="true">↗</span>
                 </div>
 
-                <span class="section-badge">Current milestone</span>
-            </div>
-
-            <div class="progress-grid">
-                <article class="progress-card">
-                    <div class="progress-top">
-                        <span class="step-number">01</span>
-                        <span class="progress-status ready">Initial version ready</span>
-                    </div>
-
-                    <h3>Website design</h3>
-
-                    <p>
-                        The initial page structure, navy blue and blood red
-                        theme, navigation, summary cards and chart areas
-                        have been created.
-                    </p>
-                </article>
-
-                <article class="progress-card">
-                    <div class="progress-top">
-                        <span class="step-number">02</span>
-                        <span class="progress-status">Next step</span>
-                    </div>
-
-                    <h3>Data integration</h3>
-
-                    <p>
-                        Check the cleaned data, confirm the available
-                        attributes and export the relevant tables for
-                        the website.
-                    </p>
-                </article>
-
-                <article class="progress-card">
-                    <div class="progress-top">
-                        <span class="step-number">03</span>
-                        <span class="progress-status">Planned</span>
-                    </div>
-
-                    <h3>Interactive visualisations</h3>
-
-                    <p>
-                        Create D3 charts, connect the supported filters,
-                        add tooltips and test the dashboard.
-                    </p>
-                </article>
-            </div>
-
-            <article class="information-card">
-                <h3>Next development tasks</h3>
-
-                <ol class="task-list">
-                    <li>Confirm the final dataset and project scope.</li>
-                    <li>Export verified data from KNIME.</li>
-                    <li>Create the annual trend visualisation.</li>
-                    <li>Add state and territory comparisons.</li>
-                    <li>Connect filters and tooltips.</li>
-                    <li>Check usability and data accuracy.</li>
-                </ol>
-            </article>
-        </section>
-
-        <!-- About -->
-        <section id="about-section" class="page-section" hidden>
-            <div class="section-heading">
                 <div>
-                    <p class="eyebrow">PROJECT BACKGROUND</p>
-                    <h2>About this dashboard</h2>
+                    <p class="eyebrow">BEHIND THE DASHBOARD</p>
+                    <h2>About the project</h2>
+                    <p>Purpose, preparation and progress.</p>
                 </div>
-            </div>
-
-            <div class="about-grid">
-                <article class="information-card">
-                    <h3>Project purpose</h3>
-
-                    <p>
-                        This COS30045 Data Visualisation project explores
-                        Australian hospitalised road injury data through
-                        clear and interactive visualisations.
-                    </p>
-
-                    <p>
-                        The dashboard is intended to help users examine
-                        changes over time and compare the categories
-                        available in the selected dataset.
-                    </p>
-                </article>
-
-                <article class="information-card">
-                    <h3>Data preparation</h3>
-
-                    <p>
-                        Data preparation is being carried out using KNIME.
-                        The process includes inspecting the source tables,
-                        selecting relevant columns and checking missing
-                        values and data types.
-                    </p>
-
-                    <p>
-                        The final visualisations will use verified exports
-                        from the cleaned data.
-                    </p>
-                </article>
-
-                <article class="information-card">
-                    <h3>Data source</h3>
-
-                    <p>
-                        The project uses hospitalised road injury publications
-                        from the Bureau of Infrastructure and Transport
-                        Research Economics (BITRE).
-                    </p>
-
-                    <p>
-                        The final workbook references, reporting period,
-                        population scope and data notes will be added
-                        during data integration.
-                    </p>
-                </article>
-
-                <article class="information-card">
-                    <h3>Current limitations</h3>
-
-                    <p>
-                        This is an initial website prototype.
-                        The summary cards and chart areas currently
-                        contain placeholders.
-                    </p>
-
-                    <p>
-                        Filter controls are disabled until the relevant
-                        data and filtering logic have been connected.
-                    </p>
-                </article>
-            </div>
+            </a>
         </section>
-
-        <footer class="site-footer">
-            <p><strong>RoadScope</strong> · COS30045 Data Visualisation</p>
-            <p>Website prototype · Data integration pending</p>
-        </footer>
     </main>
+
+    <footer class="site-footer">
+        <span>RoadScope · COS30045</span>
+        <span>Design prototype · Real data will be connected later</span>
+    </footer>
 </body>
 </html>
