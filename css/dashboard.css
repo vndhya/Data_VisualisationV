@@ -1,0 +1,306 @@
+.injuries-page .dashboard-layout {
+    gap: 12px;
+    padding: 15px 4%
+}
+
+.injuries-page .page-heading h1 {
+    font-size: 26px
+}
+
+.scope-note {
+    margin: 0;
+    text-align: right;
+    color: var(--muted);
+    font-size: 11px
+}
+
+.injuries-page .filter-bar {
+    grid-template-columns: 140px 230px 1fr auto;
+    padding: 10px 15px;
+    gap: 18px
+}
+
+.filter-bar p {
+    margin: 0;
+    font-size: 11px;
+    color: var(--muted);
+    align-self: center
+}
+
+.filter-bar select {
+    color: var(--navy);
+    cursor: pointer
+}
+
+.filter-bar button {
+    background: var(--navy);
+    color: white;
+    cursor: pointer
+}
+
+.injuries-page .charts-grid {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 12px
+}
+
+.injuries-page .chart-card {
+    padding: 13px 16px
+}
+
+.injuries-page .chart-heading {
+    margin-bottom: 5px
+}
+
+.injuries-page .chart-heading h2 {
+    font-size: 15px
+}
+
+.selected-year {
+    color: var(--blood-red);
+    font-size: 12px
+}
+
+.plot {
+    flex: 1;
+    min-height: 0;
+    position: relative
+}
+
+.plot svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible
+}
+
+.plot text {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 10px;
+    fill: var(--muted)
+}
+
+.plot .domain {
+    stroke: #ccd4df
+}
+
+.plot .tick line {
+    stroke: #e6ebf1
+}
+
+.plot .value {
+    fill: var(--navy);
+    font-weight: 600
+}
+
+.plot .missing {
+    fill: #8b0000;
+    font-size: 10px
+}
+
+.chart-note {
+    font-size: 9px;
+    margin-top: 5px;
+    line-height: 1.35
+}
+
+.line-legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 2px 0 1px
+}
+
+.line-legend button {
+    border: 0;
+    background: none;
+    padding: 2px 0;
+    cursor: pointer;
+    font: 10px 'Segoe UI', sans-serif;
+    color: var(--navy)
+}
+
+.line-legend button[aria-pressed=false] {
+    opacity: .4
+}
+
+.swatch {
+    display: inline-block;
+    width: 14px;
+    height: 3px;
+    margin-right: 5px;
+    vertical-align: middle
+}
+
+.table-toggle {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--muted);
+    border-radius: 4px;
+    font-size: 9px;
+    cursor: pointer;
+    padding: 4px 7px;
+    white-space: nowrap
+}
+
+button:focus-visible,
+select:focus-visible,
+.plot [tabindex]:focus-visible {
+    outline: 2px solid #b65353;
+    outline-offset: 2px
+}
+
+#tooltip {
+    position: fixed;
+    z-index: 1000;
+    background: var(--navy);
+    color: white;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    max-width: 300px;
+    pointer-events: none;
+    box-shadow: 0 5px 20px #0002
+}
+
+dialog {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 90vw;
+    max-height: 80vh;
+    color: var(--navy)
+}
+
+dialog::backdrop {
+    background: #0b1e3877
+}
+
+dialog table {
+    border-collapse: collapse;
+    font-size: 12px
+}
+
+dialog th,
+dialog td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left
+}
+
+#close-dialog {
+    float: right;
+    padding: 6px 10px
+}
+
+.error {
+    padding: 20px;
+    color: #8b0000
+}
+
+.injuries-page .eyebrow {
+    font-size: 8px;
+    margin-bottom: 3px
+}
+
+@media(max-height:760px) {
+    .injuries-page .dashboard-layout {
+        gap: 8px;
+        padding: 10px 3%
+    }
+
+    .injuries-page .page-heading h1 {
+        font-size: 22px
+    }
+
+    .injuries-page .chart-card {
+        padding: 9px 12px
+    }
+
+    .injuries-page .chart-heading h2 {
+        font-size: 13px
+    }
+
+    .injuries-page .filter-bar {
+        padding: 7px 12px
+    }
+
+    .chart-note {
+        font-size: 8px
+    }
+
+    .plot text {
+        font-size: 9px
+    }
+}
+
+@media(max-width:850px) {
+    .scope-note {
+        display: none
+    }
+
+    .injuries-page .filter-bar {
+        grid-template-columns: 110px 1fr auto
+    }
+
+    .filter-bar p {
+        display: none
+    }
+
+    .injuries-page .charts-grid {
+        gap: 8px
+    }
+
+    .injuries-page .chart-heading h2 {
+        font-size: 12px
+    }
+}
+
+@media(max-width:650px) {
+    html:has(.injuries-page) {
+        overflow: auto
+    }
+
+    .injuries-page {
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+        grid-template-rows: 54px 42px auto 30px
+    }
+
+    .injuries-page .dashboard-layout {
+        overflow: visible
+    }
+
+    .injuries-page .charts-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        overflow: visible
+    }
+
+    .injuries-page .chart-card {
+        height: 310px
+    }
+
+    .injuries-page .filter-bar {
+        grid-template-columns: 90px minmax(0, 1fr) auto;
+        gap: 6px
+    }
+
+    .injuries-page .filter-bar button {
+        display: block;
+        font-size: 9px;
+        padding: 7px
+    }
+
+    .injuries-page .chart-note {
+        display: block
+    }
+
+    .injuries-page .site-nav {
+        gap: 0
+    }
+
+    .injuries-page .site-nav a {
+        font-size: 10px
+    }
+}
