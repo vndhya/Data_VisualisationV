@@ -340,3 +340,141 @@ body.national-page {
         min-height: 32px;
     }
 }
+/* Fixed dashboard: charts stacked vertically, no scrolling */
+html:has(body.national-page) {
+    height: 100%;
+    overflow: hidden;
+}
+
+body.national-page {
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+    grid-template-rows: 58px 42px minmax(0, 1fr) 25px;
+}
+
+.national-page .site-header {
+    padding: 5px 3%;
+    overflow: hidden;
+}
+
+.national-page .brand {
+    font-size: 27px;
+}
+
+.national-page .brand-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 23px;
+}
+
+.national-page .site-nav {
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.national-page .site-nav a {
+    padding: 0 18px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.national-main {
+    min-height: 0;
+    overflow: hidden;
+    grid-template-rows: auto auto auto minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px 3%;
+}
+
+.national-intro h1 {
+    font-size: 23px;
+}
+
+.national-intro .national-eyebrow,
+.national-description,
+.national-scope,
+.national-method-note {
+    display: none;
+}
+
+.national-filters {
+    grid-template-columns:
+        130px minmax(160px, 1fr) minmax(160px, 1fr) auto;
+    gap: 12px;
+    padding: 7px 12px;
+}
+
+.national-filters label {
+    gap: 3px;
+    font-size: 11px;
+}
+
+.national-filters select,
+.national-filters button {
+    height: 33px;
+    font-size: 12px;
+}
+
+.national-selection {
+    min-height: 15px;
+    font-size: 11px;
+}
+
+.national-charts {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.national-card {
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+    padding: 10px 16px;
+}
+
+.national-card-heading {
+    align-items: center;
+}
+
+.national-card-heading .national-eyebrow {
+    display: none;
+}
+
+.national-card h2 {
+    font-size: 17px;
+}
+
+.national-badge {
+    padding: 3px 7px;
+    font-size: 11px;
+}
+
+.national-chart-summary {
+    min-height: 0;
+    margin: 3px 0 2px;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.national-plot {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.national-chart-note {
+    margin: 3px 0 0;
+    font-size: 10px;
+    line-height: 1.25;
+}
+
+.national-page .site-footer {
+    min-height: 0;
+    padding: 0 3%;
+    overflow: hidden;
+}

@@ -45,7 +45,7 @@
         const container = document.getElementById(id);
 
         const width = Math.max(280, container.clientWidth);
-        const height = Math.max(160, container.clientHeight);
+        const height = Math.max(1, container.clientHeight);
 
         d3.select(container).selectAll("*").remove();
 

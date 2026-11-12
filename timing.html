@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RoadScope | Road users & timing</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/national.css">
+
+    <script src="js/d3.v7.min.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/timing.js" defer></script>
+</head>
+
+<body class="national-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <span class="brand-logo">R+</span>
+            RoadScope
+        </a>
+
+        <span class="header-caption">
+            AUSTRALIAN ROAD INJURY EXPLORER
+        </span>
+
+        <span class="prototype-badge">2011–2021 DATA</span>
+    </header>
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="injuries.html">Injury patterns</a>
+        <a href="national.html">National overview</a>
+        <a href="timing.html" aria-current="page">Road users & timing</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <main class="national-main">
+        <section class="national-intro">
+            <h1>Who was injured, and when?</h1>
+        </section>
+
+        <form id="national-filters" class="national-filters">
+            <label for="national-year">
+                Selected year
+                <select id="national-year" disabled></select>
+            </label>
+
+            <label for="national-sex">
+                Sex
+                <select id="national-sex" disabled></select>
+            </label>
+
+            <label for="national-remoteness">
+                Remoteness
+                <select id="national-remoteness" disabled></select>
+            </label>
+
+            <button id="national-reset" type="button" disabled>
+                Reset filters ↺
+            </button>
+        </form>
+
+        <p id="national-selection" class="national-selection"
+            role="status" aria-live="polite">
+            Loading national data…
+        </p>
+
+        <div class="national-charts">
+            <section class="national-card">
+                <div class="national-card-heading">
+                    <h2>
+                        Hospitalisations by road user
+                        <span id="road-year">2021</span>
+                    </h2>
+                </div>
+
+                <p id="road-summary" class="national-chart-summary"></p>
+
+                <div id="road-plot" class="national-plot"></div>
+
+                <p class="national-chart-note">
+                    Counts describe hospitalisation burden, not the risk
+                    associated with each transport mode.
+                </p>
+            </section>
+
+            <section class="national-card">
+                <div class="national-card-heading">
+                    <h2>Monthly hospitalisations across the years</h2>
+                    <span class="national-badge">2011–2021</span>
+                </div>
+
+                <p class="national-chart-summary">
+                    Darker cells indicate more hospitalisations.
+                    The selected year is outlined.
+                </p>
+
+                <div id="month-plot" class="national-plot"></div>
+
+                <p class="national-chart-note">
+                    Hover or focus cells for counts. Monthly totals are
+                    not adjusted for the number of days in each month.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <span>RoadScope · COS30045</span>
+        <a href="about.html">Source & methodology ↗</a>
+    </footer>
+
+    <div id="national-tooltip" role="tooltip" hidden></div>
+</body>
+
+</html>
