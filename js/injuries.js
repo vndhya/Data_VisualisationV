@@ -96,32 +96,30 @@
       })
       .on("blur", () => tip.attr("hidden", ""));
   }
-function canvas(id, m) {
-    const el = document.getElementById(id);
-    const bounds = el.getBoundingClientRect();
+ function canvas(id, m) {
+        const el = document.getElementById(id);
+        const w = Math.max(280, el.clientWidth);
+        const h = Math.max(120, el.clientHeight);
 
-    const width = Math.max(280, bounds.width);
-    const height = Math.max(100, bounds.height);
+        d3.select(el).selectAll("*").remove();
 
-    d3.select(el).selectAll("*").remove();
+        const svg = d3.select(el)
+            .append("svg")
+            .attr("viewBox", `0 0 ${w} ${h}`)
+            .attr("role", "img")
+            .attr(
+                "aria-label",
+                el.closest("section").querySelector("h2").textContent
+            );
 
-    const svg = d3.select(el)
-        .append("svg")
-        .attr("viewBox", `0 0 ${width} ${height}`)
-        .attr("role", "img")
-        .attr(
-            "aria-label",
-            el.closest("section").querySelector("h2").textContent
-        );
-
-    return {
-        svg,
-        g: svg.append("g")
-            .attr("transform", `translate(${m.l},${m.t})`),
-        w: Math.max(20, width - m.l - m.r),
-        h: Math.max(25, height - m.t - m.b)
-    };
-}
+        return {
+            svg,
+            g: svg.append("g")
+                .attr("transform", `translate(${m.l},${m.t})`),
+            w: Math.max(20, w - m.l - m.r),
+            h: Math.max(25, h - m.t - m.b)
+        };
+    }
   const chosen = (key) => data[key].filter((d) => d.status === state.status),
     current = (key) => chosen(key).filter((d) => d.year === state.year);
   function trend() {
@@ -238,7 +236,7 @@ function canvas(id, m) {
     const rows = current("road").sort(
         (a, b) => (b.value ?? -1) - (a.value ?? -1),
       ),
-      c = canvas("road", { l: 190, r: 60, t: 8, b: 28 }),
+      c = canvas("road", { l: 157, r: 42, t: 3, b: 22 }),
       x = d3
         .scaleLinear()
         .domain([0, d3.max(rows, (d) => d.value) || 1])
@@ -285,7 +283,7 @@ function canvas(id, m) {
   function heat() {
     const rows = chosen("counterparty"),
       cats = [...new Set(rows.map((d) => d.label))],
-      c = canvas("heat", { l: 175, r: 12, t: 8, b: 48 }),
+      c = canvas("heat", { l: 148, r: 8, t: 6, b: 45 }),
       x = d3.scaleBand().domain(years).range([0, c.w]).padding(0.04),
       y = d3.scaleBand().domain(cats).range([0, c.h]).padding(0.05),
       max = d3.max(rows, (d) => d.value) || 1,
