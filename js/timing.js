@@ -112,87 +112,112 @@
             });
     }
 
-    function drawRoad(filtered) {
-        const selected = filtered.filter(d => d.year === state.year);
+function drawRoad(filtered) {
+    const selected = filtered.filter(d => d.year === state.year);
 
-        const series = d3.rollups(
-            selected,
-            group => d3.sum(group, d => d.value),
-            d => d.road
-        ).map(([road, value]) => ({
-            road,
-            value
-        })).sort((a, b) => b.value - a.value);
+    function roadGroup(label) {
+        const carLabels = [
+            "Car driver",
+            "Car passenger",
+            "Car occupant (position unknown)"
+        ];
 
-        const chart = canvas(
-            "road-plot",
-            { left: 255, right: 65, top: 4, bottom: 27 },
-            `Hospitalisations by road user, ${state.year}`
-        );
+        const heavyLabels = [
+            "Heavy vehicle driver",
+            "Heavy vehicle passenger",
+            "Heavy vehicle occupant (position unknown)"
+        ];
 
-        document.getElementById("road-year").textContent = state.year;
+        if (carLabels.includes(label)) {
+            return "Car occupants";
+        }
 
-        document.getElementById("road-summary").textContent =
-            series.length
-                ? `${series[0].road}: ` +
-                  `${format(series[0].value)} hospitalisations, ` +
-                  "the largest count for this selection."
-                : "No records for this selection.";
+        if (heavyLabels.includes(label)) {
+            return "Heavy vehicle occupants";
+        }
 
-        if (!series.length) return;
-
-        const x = d3.scaleLinear()
-            .domain([0, d3.max(series, d => d.value) || 1])
-            .nice()
-            .range([0, chart.width]);
-
-        const y = d3.scaleBand()
-            .domain(series.map(d => d.road))
-            .range([0, chart.height])
-            .padding(0.2);
-
-        chart.g.append("g")
-            .attr("transform", `translate(0,${chart.height})`)
-            .call(
-                d3.axisBottom(x)
-                    .ticks(6)
-                    .tickFormat(format)
-            );
-
-        const categoryAxis = chart.g.append("g")
-            .call(d3.axisLeft(y).tickSize(0).tickPadding(8))
-            .call(g => g.select(".domain").remove());
-
-        categoryAxis.selectAll("text")
-            .style("font-size", "11px");
-
-        const bars = chart.g.selectAll(".road-bar")
-            .data(series)
-            .join("rect")
-            .attr("class", "road-bar")
-            .attr("x", 0)
-            .attr("y", d => y(d.road))
-            .attr("width", d => x(d.value))
-            .attr("height", y.bandwidth())
-            .attr("fill", "#173455");
-
-        addTooltip(
-            bars,
-            d => `${d.road}, ${state.year}: ` +
-                 `${format(d.value)} hospitalisations`
-        );
-
-        chart.g.selectAll(".national-value")
-            .data(series)
-            .join("text")
-            .attr("class", "national-value")
-            .attr("x", d => x(d.value) + 6)
-            .attr("y", d => y(d.road) + y.bandwidth() / 2)
-            .attr("dominant-baseline", "middle")
-            .style("font-size", "11px")
-            .text(d => format(d.value));
+        return label;
     }
 
+    const series = d3.rollups(
+        selected,
+        group => d3.sum(group, d => d.value),
+        d => roadGroup(d.road)
+    )
+        .map(([road, value]) => ({ road, value }))
+        .sort((a, b) => b.value - a.value);
+
+    const chart = canvas(
+        "road-plot",
+        { left: 200, right: 75, top: 8, bottom: 30 },
+        `Hospitalisations by road-user group, ${state.year}`
+    );
+
+    document.getElementById("road-year").textContent = state.year;
+
+    document.getElementById("road-summary").textContent =
+        series.length
+            ? `${series[0].road}: ` +
+              `${format(series[0].value)} hospitalisations. ` +
+              "Car and heavy vehicle position categories are combined."
+            : "No records for this selection.";
+
+    if (!series.length) return;
+
+    const x = d3.scaleLinear()
+        .domain([0, d3.max(series, d => d.value) || 1])
+        .nice()
+        .range([0, chart.width]);
+
+    const y = d3.scaleBand()
+        .domain(series.map(d => d.road))
+        .range([0, chart.height])
+        .padding(0.3);
+
+    chart.g.append("g")
+        .attr("transform", `translate(0,${chart.height})`)
+        .call(
+            d3.axisBottom(x)
+                .ticks(6)
+                .tickFormat(format)
+        );
+
+    chart.g.append("g")
+        .call(
+            d3.axisLeft(y)
+                .tickSize(0)
+                .tickPadding(10)
+        )
+        .call(g => g.select(".domain").remove())
+        .selectAll("text")
+        .style("font-size", "12px");
+
+    const bars = chart.g.selectAll(".road-bar")
+        .data(series)
+        .join("rect")
+        .attr("class", "road-bar")
+        .attr("x", 0)
+        .attr("y", d => y(d.road))
+        .attr("width", d => x(d.value))
+        .attr("height", y.bandwidth())
+        .attr("fill", "#173455");
+
+    addTooltip(
+        bars,
+        d => `${d.road}, ${state.year}: ` +
+             `${format(d.value)} hospitalisations`
+    );
+
+    chart.g.selectAll(".national-value")
+        .data(series)
+        .join("text")
+        .attr("class", "national-value")
+        .attr("x", d => x(d.value) + 7)
+        .attr("y", d => y(d.road) + y.bandwidth() / 2)
+        .attr("dominant-baseline", "middle")
+        .style("font-size", "12px")
+        .text(d => format(d.value));
+}
     function drawMonths(filtered) {
         const totals = d3.rollup(
             filtered,
