@@ -1,0 +1,342 @@
+/* Scoped to the national page */
+body.national-page {
+    margin: 0;
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: 76px 52px minmax(0, 1fr) 32px;
+    overflow: hidden;
+    background: #f2f4f7;
+    color: #0b1e38;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.national-page,
+.national-page * {
+    box-sizing: border-box;
+}
+
+.national-page .site-header {
+    min-height: 0;
+    padding: 8px 3%;
+}
+
+.national-page .site-nav {
+    min-height: 0;
+    padding: 0 3%;
+}
+
+.national-page .site-nav a {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.national-main {
+    display: grid;
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    gap: 10px;
+    min-height: 0;
+    padding: 16px 3% 10px;
+}
+
+.national-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.national-eyebrow {
+    margin: 0 0 5px;
+    color: #65758a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.national-intro h1 {
+    margin: 0;
+    color: #0b1e38;
+    font-size: clamp(24px, 2vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+}
+
+.national-description {
+    margin: 7px 0 0;
+    color: #65758a;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.national-scope {
+    margin: 0;
+    flex-shrink: 0;
+    text-align: right;
+    color: #65758a;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.national-filters {
+    display: grid;
+    grid-template-columns: 150px minmax(180px, 1fr) minmax(180px, 1fr) auto;
+    align-items: end;
+    gap: 18px;
+    padding: 12px 16px;
+    border: 1px solid #dce3ec;
+    border-radius: 12px;
+    background: white;
+}
+
+.national-filters label {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+    color: #0b1e38;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.national-filters select {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #d4deeb;
+    border-radius: 6px;
+    background: #f5f7fa;
+    color: #0b1e38;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.national-filters button {
+    height: 40px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 6px;
+    background: #0b1e38;
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.national-filters :disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.national-selection {
+    min-height: 18px;
+    margin: 0 2px;
+    color: #65758a;
+    font-size: 12px;
+}
+
+.national-charts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    min-height: 0;
+}
+
+.national-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    padding: 20px;
+    border: 1px solid #dce3ec;
+    border-radius: 14px;
+    background: white;
+}
+
+.national-card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.national-card h2 {
+    margin: 0;
+    color: #0b1e38;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+#national-age-year {
+    color: #8b0000;
+}
+
+.national-badge {
+    padding: 6px 9px;
+    border-radius: 5px;
+    background: #edf1f6;
+    color: #65758a;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.national-chart-summary {
+    min-height: 36px;
+    margin: 10px 0 6px;
+    color: #65758a;
+    font-size: 13px;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.national-plot {
+    position: relative;
+    flex: 1 1 0;
+    min-height: 0;
+    min-width: 0;
+}
+
+.national-plot svg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.national-plot text {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 12px;
+    fill: #65758a;
+}
+
+.national-plot .domain {
+    stroke: #c9d3e0;
+}
+
+.national-plot .tick line {
+    stroke: #e8edf3;
+}
+
+.national-plot .national-value {
+    fill: #173455;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.national-chart-note {
+    margin: 12px 0 0;
+    color: #65758a;
+    font-size: 12px;
+    line-height: 1.45;
+    flex-shrink: 0;
+}
+
+.national-method-note {
+    margin: 0;
+    color: #65758a;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.national-page .site-footer {
+    padding: 0 3%;
+    font-size: 11px;
+}
+
+#national-tooltip {
+    position: fixed;
+    z-index: 1000;
+    max-width: 280px;
+    padding: 10px 13px;
+    border-radius: 7px;
+    background: #0b1e38;
+    color: white;
+    font: 13px/1.5 "Segoe UI", Arial, sans-serif;
+    pointer-events: none;
+    box-shadow: 0 5px 20px #0002;
+}
+
+.national-page select:focus-visible,
+.national-page button:focus-visible,
+.national-plot [tabindex]:focus-visible {
+    outline: 3px solid #b65353;
+    outline-offset: 3px;
+}
+
+@media (max-height: 800px) and (min-width: 901px) {
+    body.national-page {
+        grid-template-rows: 62px 44px minmax(0, 1fr) 28px;
+    }
+
+    .national-main {
+        gap: 7px;
+        padding-top: 10px;
+    }
+
+    .national-description {
+        display: none;
+    }
+
+    .national-card {
+        padding: 14px;
+    }
+
+    .national-card h2 {
+        font-size: 18px;
+    }
+
+    .national-chart-summary {
+        margin-top: 7px;
+    }
+}
+
+@media (max-width: 900px), (max-height: 620px) {
+    html:has(.national-page) {
+        height: auto;
+        overflow: auto;
+    }
+
+    body.national-page {
+        height: auto;
+        min-height: 100dvh;
+        grid-template-rows: auto auto 1fr auto;
+        overflow: visible;
+    }
+
+    .national-main {
+        grid-template-rows: auto auto auto auto auto;
+    }
+
+    .national-scope {
+        display: none;
+    }
+
+    .national-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .national-card {
+        height: 430px;
+    }
+
+    .national-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .national-page .site-nav {
+        flex-wrap: wrap;
+    }
+
+    .national-page .site-nav a {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    .national-page .site-footer {
+        min-height: 32px;
+    }
+}
