@@ -1,0 +1,175 @@
+/* Shared header and navigation across every page */
+
+body {
+    --page-scale: 1;
+}
+
+body.injuries-page {
+    --page-scale: 0.8;
+}
+
+body.national-page.overview-page,
+body.national-page.timing-page {
+    --page-scale: 0.75;
+}
+
+/* Reserve equal visible space on every page */
+body,
+body.injuries-page,
+body.national-page.overview-page,
+body.national-page.timing-page {
+    grid-template-rows:
+        calc(70px / var(--page-scale))
+        calc(52px / var(--page-scale))
+        minmax(0, 1fr)
+        auto !important;
+}
+
+/* Counteract page scaling for the header and navigation */
+body > .site-header,
+body > .site-nav {
+    zoom: calc(1 / var(--page-scale));
+    box-sizing: border-box;
+}
+
+/* Header */
+body > .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 70px;
+    min-height: 0;
+    padding: 8px 4%;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+body > .site-header .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 30px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+body > .site-header .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    font-size: 26px;
+}
+
+body > .site-header .header-caption {
+    font-size: 10px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+body > .site-header .prototype-badge {
+    padding: 8px 12px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* Navigation */
+body > .site-nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 28px;
+    height: 52px;
+    min-height: 0;
+    padding: 0 4%;
+    background: #0b1e38;
+    overflow: hidden;
+}
+
+body > .site-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 52px;
+    margin: 0;
+    padding: 0 12px;
+    border-bottom: 3px solid transparent;
+    color: #c5cfdd;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+body > .site-nav a:hover {
+    color: #ffffff;
+}
+
+body > .site-nav a[aria-current="page"] {
+    color: #ffffff;
+    border-bottom-color: #e7b0b0;
+}
+
+@media (max-width: 1000px) {
+    body > .site-header .header-caption {
+        display: none;
+    }
+
+    body > .site-nav {
+        gap: 10px;
+    }
+
+    body > .site-nav a {
+        padding-right: 8px;
+        padding-left: 8px;
+        font-size: 13px;
+    }
+}
+
+/* More compact header and navigation on every page */
+body,
+body.injuries-page,
+body.national-page.overview-page,
+body.national-page.timing-page {
+    grid-template-rows:
+        calc(58px / var(--page-scale))
+        calc(44px / var(--page-scale))
+        minmax(0, 1fr)
+        auto !important;
+}
+
+body > .site-header {
+    height: 58px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+body > .site-header .brand {
+    font-size: 27px;
+}
+
+body > .site-header .brand-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+}
+
+body > .site-header .prototype-badge {
+    padding: 6px 10px;
+}
+
+body > .site-nav,
+body > .site-nav a {
+    height: 44px;
+}
+
+body > .site-nav a {
+    font-size: 14px;
+}

@@ -305,3 +305,17 @@ dialog td {
     }
 }
 
+/* Compact injury dashboard at standard browser zoom */
+html:has(.injuries-page) {
+    height: 100%;
+    overflow: hidden;
+}
+
+body.injuries-page {
+    zoom: 0.8;
+    width: calc(100vw / 0.8);
+    height: calc(100dvh / 0.8);
+    min-height: 0;
+    margin: 0;
+    overflow: hidden;
+}
