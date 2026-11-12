@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RoadScope | National overview</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/national.css">
+
+    <script src="js/d3.v7.min.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/national.js" defer></script>
+</head>
+
+<body class="national-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <span class="brand-logo">R+</span>
+            RoadScope
+        </a>
+
+        <span class="header-caption">
+            AUSTRALIAN ROAD INJURY EXPLORER
+        </span>
+
+        <span class="prototype-badge">2011–2021 DATA</span>
+    </header>
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="injuries.html">Injury patterns</a>
+        <a href="national.html" aria-current="page">National overview</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <main class="national-main">
+        <section class="national-intro">
+            <div>
+                <p class="national-eyebrow">THE NATIONAL PICTURE</p>
+                <h1>How has the burden changed?</h1>
+                <p class="national-description">
+                    Explore changes over time and the age profile of
+                    road-crash hospitalisations across Australia.
+                </p>
+            </div>
+
+            <p class="national-scope">
+                Hospitalisation counts<br>
+                Counts describe burden, not population risk.
+            </p>
+        </section>
+
+        <form id="national-filters" class="national-filters">
+            <label for="national-year">
+                Selected year
+                <select id="national-year" disabled></select>
+            </label>
+
+            <label for="national-sex">
+                Sex
+                <select id="national-sex" disabled></select>
+            </label>
+
+            <label for="national-remoteness">
+                Remoteness
+                <select id="national-remoteness" disabled></select>
+            </label>
+
+            <button id="national-reset" type="button" disabled>
+                Reset filters ↺
+            </button>
+        </form>
+
+        <p id="national-selection" class="national-selection"
+            role="status" aria-live="polite">
+            Loading national data…
+        </p>
+
+        <div class="national-charts">
+            <section class="national-card">
+                <div class="national-card-heading">
+                    <div>
+                        <p class="national-eyebrow">01 · CHANGE OVER TIME</p>
+                        <h2>Annual hospitalisations</h2>
+                    </div>
+                    <span class="national-badge">2011–2021</span>
+                </div>
+
+                <p id="national-trend-summary" class="national-chart-summary"></p>
+
+                <div id="national-trend" class="national-plot"></div>
+
+                <p class="national-chart-note">
+                    The trend retains all years. The selected year is
+                    highlighted. Hover or focus a point for its count.
+                </p>
+            </section>
+
+            <section class="national-card">
+                <div class="national-card-heading">
+                    <div>
+                        <p class="national-eyebrow">02 · AGE PROFILE</p>
+                        <h2>
+                            Hospitalisations by age
+                            <span id="national-age-year">2021</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <p id="national-age-summary" class="national-chart-summary"></p>
+
+                <div id="national-age" class="national-plot"></div>
+
+                <p class="national-chart-note">
+                    Age bands have different widths. Counts do not measure
+                    age-specific risk.
+                </p>
+            </section>
+        </div>
+
+        <p class="national-method-note">
+            Scope: records classified as Traffic in the national workbook.
+            Unknown categories are retained. Changes in reporting and
+            admission practices should be considered when interpreting trends.
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <span>RoadScope · COS30045</span>
+        <a href="about.html">Source & methodology ↗</a>
+    </footer>
+
+    <div id="national-tooltip" role="tooltip" hidden></div>
+</body>
+
+</html>
