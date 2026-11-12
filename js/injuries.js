@@ -238,7 +238,7 @@ function canvas(id, m) {
     const rows = current("road").sort(
         (a, b) => (b.value ?? -1) - (a.value ?? -1),
       ),
-      c = canvas("road", { l: 157, r: 42, t: 3, b: 22 }),
+      c = canvas("road", { l: 190, r: 60, t: 8, b: 28 }),
       x = d3
         .scaleLinear()
         .domain([0, d3.max(rows, (d) => d.value) || 1])
