@@ -285,7 +285,7 @@ function canvas(id, m) {
   function heat() {
     const rows = chosen("counterparty"),
       cats = [...new Set(rows.map((d) => d.label))],
-      c = canvas("heat", { l: 148, r: 8, t: 6, b: 45 }),
+      c = canvas("heat", { l: 175, r: 12, t: 8, b: 48 }),
       x = d3.scaleBand().domain(years).range([0, c.w]).padding(0.04),
       y = d3.scaleBand().domain(cats).range([0, c.h]).padding(0.05),
       max = d3.max(rows, (d) => d.value) || 1,
