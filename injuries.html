@@ -3,95 +3,217 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>RoadScope | Injury patterns</title>
+
     <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/dashboard.css">
-<link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/dashboard.css">
+
     <script src="js/d3.v7.min.js" defer></script>
     <script src="js/scripts.js" defer></script>
     <script src="js/injuries.js" defer></script>
 </head>
 
 <body class="injuries-page">
-    <header class="site-header"><a href="index.html" class="brand"><span class="brand-logo">R+</span>RoadScope</a><span
-            class="header-caption">AUSTRALIAN ROAD INJURY EXPLORER</span><span class="prototype-badge">2011–2021
-            DATA</span></header>
-   <nav class="site-nav" aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="injuries.html">Injury patterns</a>
-    <a href="national.html">National overview</a>
-    <a href="timing.html">Road users & timing</a>
-    <a href="about.html">About</a>
-</nav>
-    <main class="dashboard-layout">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <span class="brand-logo">R+</span>
+            RoadScope
+        </a>
+
+        <span class="header-caption">
+            AUSTRALIAN ROAD INJURY EXPLORER
+        </span>
+
+        <span class="prototype-badge">2011–2021 DATA</span>
+    </header>
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="injuries.html" aria-current="page">Injury patterns</a>
+        <a href="national.html">National overview</a>
+        <a href="timing.html">Road users & timing</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <main class="dashboard-layout" id="main-content">
         <div class="page-heading">
             <div>
-                <p class="eyebrow">EXPLORE THE DIFFERENCES</p>
+                <p class="eyebrow">POPULATION DIFFERENCES</p>
                 <h1>Road injuries, in perspective.</h1>
             </div>
-            <p class="scope-note">Hospitalisation counts · Australia<br>Counts describe burden, not population risk.</p>
+
+            <p class="scope-note">
+                Australia · Hospitalisation counts<br>
+                Counts describe burden, not population risk.
+            </p>
         </div>
-        <form class="filter-bar" id="filters"><label for="year">Selected year<select id="year"
-                    disabled></select></label><label for="status">Indigenous status<select id="status" disabled>
-                    <option>First Nations people</option>
-                    <option>Non-Indigenous</option>
-                </select></label>
-            <p id="selection" role="status" aria-live="polite">Loading your CSV data…</p><button type="button"
-                id="reset" disabled>Reset filters ↺</button>
+
+        <form class="filter-bar" id="filters">
+            <label for="year">
+                Selected year
+                <select id="year" disabled></select>
+            </label>
+
+            <label for="status">
+                Indigenous status
+                <select id="status" disabled></select>
+            </label>
+
+            <p id="selection" role="status" aria-live="polite">
+                Loading data…
+            </p>
+
+            <button type="button" id="reset" disabled>
+                Reset filters
+            </button>
         </form>
-        <div class="charts-grid">
-            <section class="chart-card">
+
+        <div class="charts-grid" id="charts">
+            <section class="chart-card" data-key="trend"
+                aria-labelledby="trend-title">
+
                 <div class="chart-heading">
-                    <div>
-                        <p class="eyebrow">01 · CHANGE OVER TIME</p>
-                        <h2>Hospitalisations by remoteness</h2>
-                    </div><span class="chart-badge">2011–2021</span>
+                    <h2 id="trend-title">Hospitalisations by remoteness</h2>
+
+                    <div class="chart-actions">
+                        <button type="button" class="table-toggle"
+                            data-table="trend"
+                            aria-label="View remoteness data table">
+                            Table
+                        </button>
+                        <button type="button" class="expand-toggle"
+                            data-expand="trend" aria-expanded="false">
+                            Expand
+                        </button>
+                    </div>
                 </div>
-                <div id="trend-legend" class="line-legend" aria-label="Toggle remoteness series"></div>
+
+                <p class="chart-context">
+                    All years · selected year highlighted
+                </p>
+
+                <div id="trend-legend" class="line-legend"
+                    aria-label="Show or hide remoteness lines"></div>
+
                 <div class="plot" id="trend"></div>
-                <p class="chart-note">Toggle lines above. Selected year is highlighted; hover or focus points for
-                    counts.</p>
+
+                <p class="chart-note">
+                    Select a legend item to toggle its line.
+                    Hover or focus points for counts.
+                </p>
             </section>
-            <section class="chart-card">
+
+            <section class="chart-card" data-key="age"
+                aria-labelledby="age-title">
+
                 <div class="chart-heading">
-                    <div>
-                        <p class="eyebrow">02 · AGE PROFILE</p>
-                        <h2>Hospitalisations by age <span class="selected-year"></span></h2>
-                    </div><button class="table-toggle" data-table="age" type="button">Data table</button>
+                    <h2 id="age-title">
+                        Hospitalisations by age
+                        <span class="selected-year"></span>
+                    </h2>
+
+                    <div class="chart-actions">
+                        <button type="button" class="table-toggle"
+                            data-table="age"
+                            aria-label="View age data table">
+                            Table
+                        </button>
+                        <button type="button" class="expand-toggle"
+                            data-expand="age" aria-expanded="false">
+                            Expand
+                        </button>
+                    </div>
                 </div>
+
+                <p class="chart-context">Selected year</p>
+
                 <div class="plot" id="age"></div>
-                <p class="chart-note">Age bands have different widths. Counts do not measure age-specific risk.</p>
+
+                <p class="chart-note">
+                    Age bands have different widths.
+                    Counts do not measure age-specific risk.
+                </p>
             </section>
-            <section class="chart-card">
+
+            <section class="chart-card" data-key="road"
+                aria-labelledby="road-title">
+
                 <div class="chart-heading">
-                    <div>
-                        <p class="eyebrow">03 · ROAD USERS</p>
-                        <h2>Who was injured? <span class="selected-year"></span></h2>
-                    </div><button class="table-toggle" data-table="road" type="button">Data table</button>
+                    <h2 id="road-title">
+                        Hospitalisations by road user
+                        <span class="selected-year"></span>
+                    </h2>
+
+                    <div class="chart-actions">
+                        <button type="button" class="table-toggle"
+                            data-table="road"
+                            aria-label="View road-user data table">
+                            Table
+                        </button>
+                        <button type="button" class="expand-toggle"
+                            data-expand="road" aria-expanded="false">
+                            Expand
+                        </button>
+                    </div>
                 </div>
+
+                <p class="chart-context">Selected year</p>
+
                 <div class="plot" id="road"></div>
+
                 <p class="chart-note" id="road-note"></p>
             </section>
-            <section class="chart-card">
+
+            <section class="chart-card" data-key="heat"
+                aria-labelledby="heat-title">
+
                 <div class="chart-heading">
-                    <div>
-                        <p class="eyebrow">04 · CRASH CIRCUMSTANCES</p>
-                        <h2>Counterparty across the years</h2>
-                    </div><button class="table-toggle" data-table="heat" type="button">Data table</button>
+                    <h2 id="heat-title">Counterparty across the years</h2>
+
+                    <div class="chart-actions">
+                        <button type="button" class="table-toggle"
+                            data-table="heat"
+                            aria-label="View counterparty data table">
+                            Table
+                        </button>
+                        <button type="button" class="expand-toggle"
+                            data-expand="heat" aria-expanded="false">
+                            Expand
+                        </button>
+                    </div>
                 </div>
+
+                <p class="chart-context">
+                    All years · selected year outlined
+                </p>
+
                 <div class="plot" id="heat"></div>
-                <p class="chart-note">Counterparty is the vehicle or object involved. Selected year is outlined.</p>
+
+                <p class="chart-note">
+                    Counterparty means the vehicle or object involved.
+                    Use arrow keys to move between focused cells.
+                </p>
             </section>
         </div>
     </main>
-    <footer class="site-footer"><span>RoadScope · COS30045</span><a href="about.html">Source & methodology ↗</a>
+
+    <footer class="site-footer">
+        <span>RoadScope · COS30045</span>
+        <a href="about.html">Source & methodology</a>
     </footer>
+
     <div id="tooltip" role="tooltip" hidden></div>
-    <dialog id="data-dialog"><button id="close-dialog" type="button">Close ×</button>
-        <h2 id="table-title"></h2>
+
+    <dialog id="data-dialog" aria-labelledby="table-title">
+        <div class="dialog-heading">
+            <h2 id="table-title"></h2>
+            <button id="close-dialog" type="button">Close ×</button>
+        </div>
+
+        <p>Unavailable counts are not zero.</p>
         <div id="table-content"></div>
     </dialog>
 </body>
