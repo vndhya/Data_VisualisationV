@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RoadScope | About</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/about.css">
+
+    <script src="js/scripts.js" defer></script>
+    <script src="js/about.js" defer></script>
+</head>
+
+<body class="about-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <span class="brand-logo">R+</span>
+            RoadScope
+        </a>
+
+        <span class="header-caption">
+            AUSTRALIAN ROAD INJURY EXPLORER
+        </span>
+
+        <span class="prototype-badge">2011–2021 DATA</span>
+    </header>
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="injuries.html">Injury patterns</a>
+        <a href="national.html">National overview</a>
+        <a href="timing.html">Road users & timing</a>
+        <a href="about.html" aria-current="page">About</a>
+    </nav>
+
+    <main class="about-main">
+        <div class="about-heading">
+            <div>
+                <p class="about-eyebrow">BEHIND THE VISUALISATIONS</p>
+                <h1>About RoadScope</h1>
+            </div>
+
+            <p>Purpose, definitions and how to interpret the data.</p>
+        </div>
+
+        <div class="about-tabs" role="tablist"
+            aria-label="About RoadScope sections">
+
+            <button type="button" role="tab"
+                id="tab-project" aria-controls="panel-project"
+                aria-selected="true" tabindex="0">
+                Project
+            </button>
+
+            <button type="button" role="tab"
+                id="tab-glossary" aria-controls="panel-glossary"
+                aria-selected="false" tabindex="-1">
+                Glossary
+            </button>
+
+            <button type="button" role="tab"
+                id="tab-preparation" aria-controls="panel-preparation"
+                aria-selected="false" tabindex="-1">
+                Preparation
+            </button>
+
+            <button type="button" role="tab"
+                id="tab-limitations" aria-controls="panel-limitations"
+                aria-selected="false" tabindex="-1">
+                Limitations
+            </button>
+
+            <button type="button" role="tab"
+                id="tab-sources" aria-controls="panel-sources"
+                aria-selected="false" tabindex="-1">
+                Sources
+            </button>
+        </div>
+
+        <div class="about-panels">
+            <!-- PROJECT -->
+            <section class="about-panel" role="tabpanel"
+                id="panel-project" aria-labelledby="tab-project"
+                tabindex="0">
+
+                <div class="about-columns">
+                    <article class="about-card about-card-dark">
+                        <p class="about-eyebrow">OUR PURPOSE</p>
+                        <h2>Make road injury patterns easier to explore.</h2>
+
+                        <p>
+                            RoadScope is a student data visualisation
+                            project for COS30045 at Swinburne University
+                            of Technology.
+                        </p>
+
+                        <p>
+                            It explores Australian road-crash
+                            hospitalisation counts from 2011 to 2021,
+                            helping readers examine changes over time
+                            and differences between population groups.
+                        </p>
+
+                        <div class="about-callout">
+                            Counts describe the burden of hospitalisation.
+                            They do not establish an individual's risk.
+                        </div>
+                    </article>
+
+                    <article class="about-card">
+                        <h2>Three connected views</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>National overview</dt>
+                                <dd>
+                                    Explore annual totals and the age
+                                    profile of hospitalisations.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Injury patterns</dt>
+                                <dd>
+                                    Explore First Nations and
+                                    Non-Indigenous counts by age,
+                                    remoteness, road user and counterparty.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Road users & timing</dt>
+                                <dd>
+                                    Compare road-user groups and examine
+                                    monthly patterns across the years.
+                                </dd>
+                            </div>
+                        </dl>
+
+                        <p class="about-small">
+                            Data preparation: KNIME.
+                            Website charts: D3.js v7.
+                            This is an independent student project,
+                            not an official government dashboard.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- GLOSSARY -->
+            <section class="about-panel" role="tabpanel"
+                id="panel-glossary" aria-labelledby="tab-glossary"
+                tabindex="0" hidden>
+
+                <div class="about-columns">
+                    <article class="about-card">
+                        <h2>People and hospitalisations</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>Hospitalised injury</dt>
+                                <dd>
+                                    An injury resulting in hospital
+                                    admission, excluding in-hospital death
+                                    under this source's definition.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Road user</dt>
+                                <dd>
+                                    The injured person's role, such as
+                                    car occupant, motorcyclist,
+                                    pedal cyclist or pedestrian.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Indigenous status</dt>
+                                <dd>
+                                    The source's classification used to
+                                    present First Nations and
+                                    Non-Indigenous hospitalisation counts.
+                                </dd>
+                            </div>
+                        </dl>
+                    </article>
+
+                    <article class="about-card">
+                        <h2>Places and chart labels</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>Remoteness</dt>
+                                <dd>
+                                    An area classification. Regional
+                                    combines Inner and Outer Regional;
+                                    Remote combines Remote and Very Remote.
+                                    It should not be interpreted as an
+                                    exact crash location.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Counterparty</dt>
+                                <dd>
+                                    The other vehicle, object or party
+                                    involved in the injury event.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Unavailable / N/P</dt>
+                                <dd>
+                                    A complete published count is not
+                                    available. This does not mean zero.
+                                </dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </section>
+
+            <!-- PREPARATION -->
+            <section class="about-panel" role="tabpanel"
+                id="panel-preparation"
+                aria-labelledby="tab-preparation"
+                tabindex="0" hidden>
+
+                <div class="about-columns">
+                    <article class="about-card">
+                        <h2>Preparing the source data</h2>
+
+                        <ol class="about-steps">
+                            <li>
+                                <strong>Read the raw worksheets.</strong>
+                                Import the original Excel data into KNIME.
+                            </li>
+                            <li>
+                                <strong>Select the required records.</strong>
+                                For the national dataset, retain records
+                                classified as Traffic.
+                            </li>
+                            <li>
+                                <strong>Standardise the columns.</strong>
+                                Rename fields, create readable labels and
+                                set calendar-month and age-group order.
+                            </li>
+                            <li>
+                                <strong>Validate and export.</strong>
+                                Check grouped totals and export cleaned
+                                CSV files for the website.
+                            </li>
+                        </ol>
+                    </article>
+
+                    <article class="about-card">
+                        <h2>How the website calculates counts</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>National pages</dt>
+                                <dd>
+                                    D3 filters the detailed records, then
+                                    sums hospitalisations for each chart.
+                                    The cleaned national CSV contains
+                                    86,140 records.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Population comparison</dt>
+                                <dd>
+                                    Annual counts require two distinct
+                                    half-years with published numeric
+                                    values. Incomplete annual counts
+                                    remain unavailable.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Road-user grouping</dt>
+                                <dd>
+                                    On Road users & timing, car position
+                                    categories are combined into Car
+                                    occupants. Heavy vehicle position
+                                    categories are also combined.
+                                </dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </section>
+
+            <!-- LIMITATIONS -->
+            <section class="about-panel" role="tabpanel"
+                id="panel-limitations"
+                aria-labelledby="tab-limitations"
+                tabindex="0" hidden>
+
+                <div class="about-columns">
+                    <article class="about-card">
+                        <h2>Interpret comparisons carefully</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>Counts are not rates</dt>
+                                <dd>
+                                    Larger populations can produce larger
+                                    counts. Population size and travel
+                                    exposure are not adjusted for here.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Unequal age bands</dt>
+                                <dd>
+                                    The age categories span different
+                                    numbers of years, and differ between
+                                    the national and First Nations files.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Monthly totals</dt>
+                                <dd>
+                                    Months contain different numbers of
+                                    days. The heatmap does not adjust
+                                    counts to a daily average.
+                                </dd>
+                            </div>
+                        </dl>
+                    </article>
+
+                    <article class="about-card">
+                        <h2>Coverage and reporting changes</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>Breaks in the series</dt>
+                                <dd>
+                                    Admission-policy changes in Victoria
+                                    from July 2012 and NSW from June 2017
+                                    affect comparisons across years.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Missing and unknown information</dt>
+                                <dd>
+                                    Unpublished values are not replaced
+                                    with zero. Unknown categories are
+                                    retained where available; displayed
+                                    category totals may differ.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Historical release</dt>
+                                <dd>
+                                    This project uses the 2023 workbooks
+                                    covering 2011–2021. It does not
+                                    represent the latest available year.
+                                    Source data may be revised.
+                                </dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SOURCES -->
+            <section class="about-panel" role="tabpanel"
+                id="panel-sources" aria-labelledby="tab-sources"
+                tabindex="0" hidden>
+
+                <div class="about-columns">
+                    <article class="about-card">
+                        <h2>Official data sources</h2>
+
+                        <p>
+                            BITRE and the Road Safety Data Hub publish
+                            the hospitalised injury series using data
+                            sourced from the Australian Institute of
+                            Health and Welfare.
+                        </p>
+
+                        <ul class="about-source-list">
+                            <li>
+                                <a href="https://www.bitre.gov.au/resource/road-safety/hospitalised-injury">
+                                    BITRE hospitalised injury publication
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.bitre.gov.au/sites/default/files/documents/hospitalisation_injury_publication_sep2023.xlsx">
+                                    National workbook — September 2023
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.bitre.gov.au/sites/default/files/documents/First-Nations-hospitalised-injuries-2023.xlsx">
+                                    First Nations workbook — 2023
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.bitre.gov.au/sites/default/files/documents/hospitalised-injury-data-dictionary-september-2023.pdf">
+                                    Data dictionary — September 2023 (PDF)
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="about-card">
+                        <h2>Project and technology</h2>
+
+                        <dl class="about-definitions">
+                            <div>
+                                <dt>Data preparation</dt>
+                                <dd>
+                                    KNIME Analytics Platform was used to
+                                    clean, label, aggregate and validate
+                                    the source data.
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt>Interactive visualisations</dt>
+                                <dd>
+                                    Charts are generated with D3.js v7.
+                                    HTML, CSS and JavaScript provide the
+                                    pages, layout and controls.
+                                </dd>
+                            </div>
+                        </dl>
+
+                        <div class="about-resource-links">
+                            <a href="https://d3js.org/">D3 documentation</a>
+                            <a href="https://www.knime.com/">
+                                KNIME
+                            </a>
+                        </div>
+
+                        <p class="about-small">
+                            Original data belongs to its respective
+                            providers. RoadScope's layout and
+                            interpretations are part of the student
+                            project.
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <span>RoadScope · COS30045</span>
+        <span>Australian road-crash hospitalisations · 2011–2021</span>
+    </footer>
+</body>
+
+</html>
